@@ -37,7 +37,7 @@ GEMINI_API_KEY=AIzaSy... (Your Google Gemini API Key)
 ### 2. Client Environment (`/client/.env`)
 Create a file named `.env` inside the `client/` directory and populate it with:
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
 ---
