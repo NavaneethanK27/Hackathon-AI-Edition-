@@ -94,6 +94,5 @@ The client will launch by default on `http://localhost:5173`. Open your browser 
   
 ---
 
-  🔗Project Link
-https://adaptive-scholar--sakanayogarasha.replit.app/
+ 
   
