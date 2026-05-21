@@ -91,3 +91,7 @@ The client will launch by default on `http://localhost:5173`. Open your browser 
 * **Resilient Audio Context**: Pomodoro alerts leverage native browser `AudioContext` and hardware frequency oscillators, operating without external sound assets.
 * **Responsive Styling**: Tailwind styling maps fluidly across all layouts, looking premium on standard widescreen monitors as well as strict mobile screens (e.g. 375px) via dynamic navigation menus.
 * **Midnight Cron Audits**: Server automatically runs midnight cron checks to audit user fatigue levels and inject wellness breaks.
+
+  ##<a href="https://www.flaticon.com/free-icons/link" title="link icons">Link icons created by Freepik - Flaticon</a> Project Link
+  https://adaptive-scholar--sakanayogarasha.replit.app/
+  
