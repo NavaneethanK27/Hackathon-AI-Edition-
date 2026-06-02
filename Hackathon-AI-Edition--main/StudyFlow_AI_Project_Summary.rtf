@@ -1,0 +1,64 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl;\red0\green0\blue0;\red0\green51\blue153;}
+\viewkind4\uc1\pard\sa200\sl276\slmult1\f0\fs32\b StudyFlow AI — Adaptive AI Study Optimization Platform\b0\fs24\par
+\par
+StudyFlow AI is an adaptive study optimization platform with gamified productivity features and an AI assistant. It combines user authentication and onboarding, course/task management, scheduled study blocks, burnout detection, AI-generated quizzes, and scheduling suggestions.\par
+\par
+\b Project Workflow\b0\par
+\pard\li360\sa120 1. User enters the app\par
+\pard\li720\sa120 - frontend routes are guarded by auth state\par
+\pard\li720\sa120 - if logged out, user sees sign-in / sign-up pages\par
+\pard\li720\sa120 - if logged in, user is routed to dashboard and protected features\par
+\pard\li360\sa120 2. Authentication\par
+\pard\li720\sa120 - client/src/context/AuthContext.jsx manages login, signup, logout, and session validation\par
+\pard\li720\sa120 - localStorage stores token and user for persistence\par
+\pard\li720\sa120 - on load, the app verifies the stored token with GET /api/auth/me\par
+\pard\li360\sa120 3. Session maintenance\par
+\pard\li720\sa120 - API requests use client/src/api/axios.js\par
+\pard\li720\sa120 - JWT token is added automatically to every request\par
+\pard\li720\sa120 - a 401 response triggers a refresh attempt with POST /api/auth/refresh\par
+\pard\li720\sa120 - invalid sessions clear stored auth info and redirect back to auth\par
+\pard\li360\sa120 4. Dashboard / user experience\par
+\pard\li720\sa120 - once authenticated, the user can access Dashboard, Tasks, Schedule, AI Assistant, Quiz generator, Profile\par
+\pard\li360\sa120 5. Task and schedule management\par
+\pard\li720\sa120 - users add tasks with due dates and priorities\par
+\pard\li720\sa120 - study blocks are scheduled and shown on a weekly calendar\par
+\pard\li720\sa120 - backend ensures saved tasks and blocks are linked to the authenticated user\par
+\pard\li360\sa120 6. AI-assisted features\par
+\pard\li720\sa120 - client/src/hooks/useAI.js calls AI endpoints\par
+\pard\li720\sa120 - backend server/controllers/aiController.js uses Gemini / mock fallback logic\par
+\pard\li720\sa120 - AI can generate study plans, burnout insights, quiz questions, and scheduling suggestions\par
+\pard\li360\sa120 7. Gamification\par
+\pard\li720\sa120 - user XP, level, streaks, and onboarding bonuses are tracked in the user model\par
+\pard\li720\sa120 - actions like completing onboarding or finishing study sessions update experience state\par
+\par
+\b Technology Stack\b0\par
+\pard\li360\sa120 Frontend: React 18, Vite, Tailwind CSS, React Router, Axios, Lucide Icons\par
+\pard\li360\sa120 Backend: Node.js, Express, MongoDB with Mongoose, JWT authentication, Google Gemini via @google/generative-ai, node-cron\par
+\pard\li360\sa120 Data & Storage: MongoDB for user data, tasks, study blocks, quizzes; local storage in browser for auth token and user persistence\par
+\par
+\b Key Code Structure\b0\par
+\pard\li360\sa120 Frontend:\par
+\pard\li720\sa120 - client/src/context/AuthContext.jsx handles login/signup, localStorage, session restore\par
+\pard\li720\sa120 - client/src/api/axios.js sets base API URL and JWT interceptors\par
+\pard\li720\sa120 - client/src/pages/ contains core screens: AuthPage.jsx, Dashboard.jsx, Tasks.jsx, Schedule.jsx, AIAssistant.jsx\par
+\pard\li360\sa120 Backend:\par
+\pard\li720\sa120 - server/controllers/authController.js handles user register/login/session refresh/onboarding\par
+\pard\li720\sa120 - server/middleware/authMiddleware.js protects private API routes via JWT\par
+\pard\li720\sa120 - server/models/User.js defines user schema, password hashing, streak/XP fields\par
+\pard\li720\sa120 - server/routes/authRoutes.js exposes auth endpoints under /api/auth\par
+\par
+\b Environment and Running Locally\b0\par
+\pard\li360\sa120 Backend:\par
+\pard\li720\sa120 - Create server/.env with PORT=5000, MONGO_URI, JWT_SECRET, GEMINI_API_KEY\par
+\pard\li720\sa120 - Run npm install and npm run dev inside the server folder\par
+\pard\li360\sa120 Frontend:\par
+\pard\li720\sa120 - Create client/.env with VITE_API_URL=http://localhost:5000/api\par
+\pard\li720\sa120 - Run npm install and npm run dev inside the client folder\par
+\par
+\b Important Notes\b0\par
+\pard\li360\sa120 - The backend runs on port 5000 and the frontend uses the API base URL http://localhost:5000/api\par
+\pard\li360\sa120 - Authentication depends on JWT and persistent localStorage\par
+\pard\li360\sa120 - Gemini integration is supported with fallback mock response behavior when the API key is missing\par
+}
