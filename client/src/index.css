@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 dark:bg-[#090b11] text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism Cards */
+  .glass-card {
+    @apply bg-white/70 dark:bg-[#121622]/65 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/40 shadow-sm dark:shadow-2xl dark:shadow-slate-950/20 rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card-hover {
+    @apply hover:bg-white/80 dark:hover:bg-[#121622]/75 hover:border-brand-500/30 dark:hover:border-brand-500/20 hover:-translate-y-0.5 hover:shadow-lg dark:hover:shadow-brand-500/5;
+  }
+
+  .glass-input {
+    @apply bg-white/50 dark:bg-slate-900/40 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2.5 text-slate-800 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all duration-200;
+  }
+
+  select.glass-input option {
+    @apply bg-white dark:bg-[#121622] text-slate-800 dark:text-slate-100;
+  }
+
+  .glass-btn {
+    @apply px-5 py-2.5 rounded-xl font-medium flex items-center justify-center gap-2 active:scale-[0.98] transition-all duration-200;
+  }
+
+  .glass-btn-primary {
+    @apply glass-btn bg-brand-600 hover:bg-brand-500 text-white shadow-md shadow-brand-600/20 hover:shadow-brand-500/35 hover:-translate-y-0.5;
+  }
+
+  .glass-btn-secondary {
+    @apply glass-btn bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border dark:border-slate-800 text-slate-700 dark:text-slate-200;
+  }
+
+  .glass-btn-danger {
+    @apply glass-btn bg-danger hover:bg-danger/90 text-white shadow-md shadow-danger/10 hover:shadow-danger/25;
+  }
+
+  /* Custom Pomodoro clock glowing borders */
+  .pomodoro-glow {
+    box-shadow: 0 0 40px -5px rgba(139, 92, 246, 0.15);
+  }
+}
+
+/* Premium custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.35);
+}
+
+/* Animated Floating Blob Gradients for premium aesthetics */
+.floating-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: -10;
+  opacity: 0.15;
+  animation: floatBlob 25s infinite alternate ease-in-out;
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(50px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.95);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
